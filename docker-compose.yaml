@@ -1,0 +1,6 @@
+version: '3.8'
+services:
+  zgradovi-web:
+    build: .
+    ports:
+      - '3000:8080'
