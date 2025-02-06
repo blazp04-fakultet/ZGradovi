@@ -26,16 +26,19 @@
   </div>
   <div class="h-10 bg-gray-100"></div>
   <div class="h-60 bg-cyan-700 flex flex-col justify-center items-center">
-    <h3 class="text-3xl font-lg text-white pt-2 pb-6">Ready to Plan Your Next Adventure?</h3>
-    <Button>Dodaj novi grad</Button>
+    <h3 class="text-3xl font-lg text-white pt-2 pb-6">
+      Ready to Plan Your Next Adventure?
+    </h3>
+
+    <DodavanjeGradova v-model:modelValue="isDrawerOpen" />
   </div>
   <div class="h-10 bg-gray-100"></div>
   <TeamSection />
   <div class="h-20 bg-gray-700 flex flex-col items-center justify-center">
-    <h3 class="text-xl font-medium text-white pt-2">© ŽGRADOVI 2025. All rights reserved.</h3>
+    <h3 class="text-xl font-medium text-white pt-2">
+      © ŽGRADOVI 2025. All rights reserved.
+    </h3>
   </div>
-
-
 </template>
 
 <script setup lang="ts">
