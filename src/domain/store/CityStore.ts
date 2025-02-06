@@ -1,6 +1,13 @@
 import { defineStore } from 'pinia'
 import type { CityModel } from '@/domain/model/local/CityModel'
+import type { CityDetails } from '@/domain/model/local/CityDetails'
 import { ref } from 'vue'
+import {
+  fetchAllCities,
+  fetchCityDetails,
+} from '@/domain/repository/CityRepository'
+import type { CityResponseModel } from '../model/response/CityResponseModel'
+
 import { fetchAllCities, postNewCity } from '@/domain/repository/CityRepository'
 import type { CityResponseModel } from '../model/response/CityResponseModel'
 import type { CityDetailsModel } from '../model/local/CityDetailsModel'
@@ -23,6 +30,21 @@ export const useCityStore = defineStore('cityStore', () => {
       thumbnailURL: city.imageUrl,
     }))
     cities.value = c
+  }
+  const getCityDetails = async (id: string): Promise<CityDetails> => {
+    console.log('getCityDetails')
+    const response = await fetchCityDetails(id)
+    const cityDetails: CityDetails = {
+      name: response.name,
+      description: response.description,
+      country: response.country,
+      settledYear: response.settledYear,
+      consolidatedYear: response.consolidatedYear,
+      population: response.population,
+      zipCode: response.zipCode,
+      imageUrl: response.imageUrl,
+    }
+    return cityDetails
   }
 
   const addNewCity = async (city: CityDetailsModel) => {
@@ -47,6 +69,7 @@ export const useCityStore = defineStore('cityStore', () => {
     cities,
     initial,
     getAllCities,
+    getCityDetails,
     addNewCity,
   }
 })
