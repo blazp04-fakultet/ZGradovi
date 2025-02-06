@@ -14,6 +14,7 @@ import type { CityDetailsRequestModel } from '../model/request/CityDetailsReques
 export const useCityStore = defineStore('cityStore', () => {
   //? ---------------[STATE]-----------------
   const cities = ref<CityModel[] | null>(null)
+  const cityDetails = ref<CityDetails | null>(null)
 
   //? ---------------[ACTIONS]---------------
 
@@ -30,20 +31,23 @@ export const useCityStore = defineStore('cityStore', () => {
     }))
     cities.value = c
   }
-  const getCityDetails = async (id: string): Promise<CityDetails> => {
+  const getCityDetails = async (id: string) => {
     console.log('getCityDetails')
     const response = await fetchCityDetails(id)
-    const cityDetails: CityDetails = {
-      name: response.name,
-      description: response.description,
-      country: response.country,
-      settledYear: response.settledYear,
-      consolidatedYear: response.consolidatedYear,
-      population: response.population,
-      zipCode: response.zipCode,
-      imageUrl: response.imageUrl,
+    console.log(response)
+    if (response) {
+      const cd: CityDetails = {
+        name: response.name ?? '',
+        description: response.description ?? '',
+        country: response.country ?? '',
+        settledYear: response.settledYear?.toString() ?? '',
+        consolidatedYear: response.consolidatedYear?.toString() ?? '',
+        population: response.population?.toString() ?? '',
+        zipCode: response.zipCode?.toString() ?? '',
+        imageUrl: response.imageUrl ?? '',
+      }
+      cityDetails.value = cd
     }
-    return cityDetails
   }
 
   const addNewCity = async (city: CityDetailsModel) => {
@@ -70,5 +74,6 @@ export const useCityStore = defineStore('cityStore', () => {
     getAllCities,
     getCityDetails,
     addNewCity,
+    cityDetails,
   }
 })

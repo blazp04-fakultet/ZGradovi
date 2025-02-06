@@ -8,7 +8,7 @@
         <p class="text-cs pl-3 pb-3">{{ props.model.country }}</p>
       </div>
       <CardFooter class="p-3 mt-auto">
-        <CityDetails />
+        <CityDetails :id="props.model.id" />
       </CardFooter>
     </CardContent>
   </Card>
