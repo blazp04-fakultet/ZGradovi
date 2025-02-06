@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import Button from '@/components/ui/button/Button.vue';
 import {
   Dialog,
   DialogContent,
@@ -14,10 +15,8 @@ import { Separator } from '@/components/ui/separator'
 
 <template>
   <Dialog>
-    <DialogTrigger
-      class="text-white border-2 border-black bg-transparent px-6 py-2 rounded-md bg-black hover:text-white focus:outline-none focus:ring-2 focus:ring-black"
-    >
-      Nauči više
+    <DialogTrigger class="w-full h-full flex items-center justify-center">
+      <Button class="w-full"> Pročitaj više </Button>
     </DialogTrigger>
     <DialogContent>
       <DialogHeader>

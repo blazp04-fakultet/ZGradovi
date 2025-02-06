@@ -16,7 +16,6 @@ async function fetchCityDetails(id: string): Promise<CityResponseDetails> {
   return cityDetails
 }
 
-export { fetchAllCities, fetchCityDetails }
 async function postNewCity(city: CityDetailsRequestModel): Promise<boolean> {
   const response = await apiConfig.post('/cities', city)
   if (response.status == 201) {
@@ -25,4 +24,4 @@ async function postNewCity(city: CityDetailsRequestModel): Promise<boolean> {
   return false
 }
 
-export { fetchAllCities, postNewCity }
+export { fetchAllCities, postNewCity, fetchCityDetails }
