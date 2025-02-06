@@ -1,13 +1,20 @@
 <template>
-  <div class="bg-gray-500 flex justify-between pt-4 pl-10 pr-10">
-    <h3 class="text-xl text-white">Pozdrav, {{ autentificationStore.userData?.fullName || '' }}</h3>
-    <Button @click="autentificationStore.logout">Odjavi se</Button>
+  <div class="bg-gray-900 bg-opacity-10 flex justify-between relative">
+    <video autoplay muted loop class="object-cover w-full h-[50rem]">
+      <source src="@/assets/video/town.mp4" type="video/mp4">
+    </video>
+    <div class="absolute top-0 left-0 w-full h-full bg-black opacity-70"></div>
+    <div class="absolute top-0 left-0 w-full h-full flex justify-between pt-4 pl-10 pr-10">
+      <h3 class="text-xl text-white">Pozdrav, {{ autentificationStore.userData?.fullName || '' }}</h3>
+      <Button variant="outline" @click="autentificationStore.logout">Odjavi se</Button>
+    </div>
+    <div class="absolute top-0 left-0 w-full h-full flex flex-col justify-center items-center">
+      <h2 class="text-6xl font-bold text-white">Discover the World's Most Vibrant Cities</h2>
+      <p class="text-2xl font-lg text-white pt-2 pb-6">Explore culture, landmarks, and hidden gems</p>
+      <Button variant="outline">Start exploring → </Button>
+    </div>
   </div>
-  <div class="h-[50rem] bg-gray-500 flex flex-col justify-center items-center">
-    <h2 class="text-6xl font-bold text-white">Discover the World's Most Vibrant Cities</h2>→
-    <p class="text-2xl font-lg text-white pt-2 pb-6">Explore culture, landmarks, and hidden gems</p>
-    <Button>Start exploring → </Button>
-  </div>
+
   <div class="h-10 bg-gray-100"></div>
   <div class="pl-4 pr-4 bg-gray-100">
     <h3 class="text-4xl pb-6 font-lg text-black font-bold flex justify-center items-center">Featured Cities</h3>
