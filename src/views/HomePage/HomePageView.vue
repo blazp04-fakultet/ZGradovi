@@ -48,6 +48,7 @@ import TeamSection from "./components/TeamSection.vue";
 import { onMounted } from "vue";
 import { useCityStore } from "@/domain/store/CityStore";
 import { useAutentificationStore } from "@/domain/store/AutentificationStore";
+import DodavanjeGradova from "./components/DodavanjeGradova.vue";
 
 
 
