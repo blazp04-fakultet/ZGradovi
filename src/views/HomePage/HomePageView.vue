@@ -7,7 +7,11 @@
   <div class="h-10 bg-gray-100"></div>
   <div class="pl-4 pr-4 bg-gray-100">
     <h3 class="text-4xl pb-6 font-lg text-black font-bold flex justify-center items-center">Featured Cities</h3>
-    <CityCard :model="city" />
+    <div
+      class="mx-auto my-auto w-full max-w-[70rem] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-4 md:gap-6 lg:gap-8 grid-auto-rows ">
+      <CityCard v-for="(city) in cityStore.cities" :model="city" :key="city.id" />
+
+    </div>
   </div>
   <div class="h-10 bg-gray-100"></div>
   <div class="h-60 bg-cyan-700 flex flex-col justify-center items-center">
@@ -24,18 +28,19 @@
 </template>
 
 <script setup lang="ts">
-import type { CityModel } from "@/domain/model/local/CityModel";
 import CityCard from "./components/CityCard.vue";
 import { Button } from '@/components/ui/button'
 import TeamSection from "./components/TeamSection.vue";
+import { onMounted } from "vue";
+import { useCityStore } from "@/domain/store/CityStore";
 
 
-const city: CityModel = {
-  id: '1',
-  name: 'Tomislavgrad',
-  country: 'Bosna i Hercegovina',
-  thumbnailURL: 'https://tomislavgrad.gov.ba/wp-content/uploads/2022/05/Tomislavgrad1.jpg',
-};
+
+
+const cityStore = useCityStore();
+onMounted(async () => {
+  await cityStore.initial();
+});
 
 </script>
 <style></style>
