@@ -4,7 +4,7 @@
       <source src="@/assets/video/town.mp4" type="video/mp4">
     </video>
     <div class="absolute top-0 left-0 w-full h-full bg-black opacity-70"></div>
-    <div class="absolute top-0 left-0 w-full h-full flex justify-between pt-4 pl-10 pr-10 z-10">
+    <div class="absolute top-0 left-0 w-full h-full flex justify-between pt-4 pl-10 pr-10 z-30">
       <h3 class="text-xl text-white">Pozdrav, {{ autentificationStore.userData?.fullName || '' }}</h3>
       <Button variant="outline" @click="autentificationStore.logout">Odjavi se</Button>
     </div>
