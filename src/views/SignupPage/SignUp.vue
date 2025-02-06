@@ -23,8 +23,6 @@ const email = ref<string>('')
 const password = ref<string>('')
 
 const handleSignup = async () => {
-  console.log('signup')
-  console.log(firstName.value, lastName.value, email.value, password.value)
   const model: SignupRequestModel = { firstName: firstName.value, lastName: lastName.value, email: email.value, password: password.value }
   await authStore.signup(model)
 }

@@ -13,9 +13,7 @@ export const useCityStore = defineStore('cityStore', () => {
     await getAllCities()
   }
   const getAllCities = async () => {
-    console.log('getAllCities')
     const response: CityResponseModel[] = await fetchAllCities()
-    console.log(response)
     const c: CityModel[] = response.map(city => ({
       id: city.id,
       name: city.name,

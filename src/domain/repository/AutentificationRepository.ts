@@ -1,6 +1,18 @@
 import apiConfig from '@/config/AxiosConfig'
 import type SignupRequestModel from '../model/request/SignupRequestModel.ts'
-async function fetchUserData(): Promise<UserResponseModel> {}
+import type { UserResponseModel } from '../model/response/UserResponseDataModel.js'
+
+async function fetchUserData(): Promise<UserResponseModel> {
+  try {
+    const response = await apiConfig.get('users/me')
+    console.log(response)
+    const data = response.data.data
+    const user: UserResponseModel = data.user
+    return user
+  } catch (e) {
+    throw e
+  }
+}
 async function login(email: string, password: string): Promise<string> {
   try {
     const payload = {

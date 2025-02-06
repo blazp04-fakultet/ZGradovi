@@ -1,4 +1,8 @@
 <template>
+  <div class="bg-gray-500 flex justify-between pt-4 pl-10 pr-10">
+    <h3 class="text-xl text-white">Pozdrav, {{ autentificationStore.userData?.fullName || '' }}</h3>
+    <Button @click="autentificationStore.logout">Odjavi se</Button>
+  </div>
   <div class="h-[50rem] bg-gray-500 flex flex-col justify-center items-center">
     <h2 class="text-6xl font-bold text-white">Discover the World's Most Vibrant Cities</h2>→
     <p class="text-2xl font-lg text-white pt-2 pb-6">Explore culture, landmarks, and hidden gems</p>
@@ -33,11 +37,13 @@ import { Button } from '@/components/ui/button'
 import TeamSection from "./components/TeamSection.vue";
 import { onMounted } from "vue";
 import { useCityStore } from "@/domain/store/CityStore";
+import { useAutentificationStore } from "@/domain/store/AutentificationStore";
 
 
 
 
 const cityStore = useCityStore();
+const autentificationStore = useAutentificationStore();
 onMounted(async () => {
   await cityStore.initial();
 });
