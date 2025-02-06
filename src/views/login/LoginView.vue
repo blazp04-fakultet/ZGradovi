@@ -9,6 +9,18 @@ import {
 } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
+import { useAutentificationStore } from '@/domain/store/AutentificationStore'
+import { ref } from 'vue'
+import { useRouter } from 'vue-router'
+const email = ref('')
+const password = ref('')
+const userStore = useAutentificationStore()
+const router = useRouter()
+const Login = async () => {
+  if (email.value && password.value) {
+    const success = await userStore.login(email.value, password.value)
+  }
+}
 </script>
 
 <template>
@@ -29,13 +41,14 @@ import { Label } from '@/components/ui/label'
               type="email"
               placeholder="m@example.com"
               required
+              v-model="email"
             />
           </div>
           <div class="grid gap-2 pas">
             <Label for="password">Password</Label>
-            <Input id="password" type="password" />
+            <Input id="password" type="password" v-model="password" />
           </div>
-          <Button type="submit" class="w-full"> Prijava </Button>
+          <Button type="submit" class="w-full" @click="Login"> Prijava </Button>
         </div>
         <div class="mt-4 text-center text-sm">
           Nemate račun?
