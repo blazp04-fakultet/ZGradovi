@@ -1,6 +1,7 @@
 import apiConfig from '@/config/AxiosConfig'
 import type { CityResponseModel } from '../model/response/CityResponseModel'
 import type { CityResponseDetails } from '../model/response/CityResponseDetails'
+import type { CityDetailsRequestModel } from '../model/request/CityDetailsRequestModel'
 
 async function fetchAllCities(): Promise<CityResponseModel[]> {
   const response = await apiConfig.get('/cities?sortBy=name&sortType=ASC')
@@ -16,3 +17,12 @@ async function fetchCityDetails(id: string): Promise<CityResponseDetails> {
 }
 
 export { fetchAllCities, fetchCityDetails }
+async function postNewCity(city: CityDetailsRequestModel): Promise<boolean> {
+  const response = await apiConfig.post('/cities', city)
+  if (response.status == 201) {
+    return true
+  }
+  return false
+}
+
+export { fetchAllCities, postNewCity }

@@ -24,17 +24,8 @@ const teamList: TeamModel[] = [
         name: "LinkedIn",
         url: "https://www.linkedin.com/in/leopoldo-miranda/",
       },
-
-    ],
-  },
-  {
-    imageUrl: BlazPeric,
-    firstName: "Blaž",
-    lastName: "Perić",
-    positions: ["Frontend"],
-    socialNetworks: [
       {
-        name: "LinkedIn",
+        name: "Github",
         url: "https://www.linkedin.com/in/leopoldo-miranda/",
       },
 
@@ -66,19 +57,7 @@ const teamList: TeamModel[] = [
 
     ],
   },
-  {
-    imageUrl: BlazPeric,
-    firstName: "Blaž",
-    lastName: "Perić",
-    positions: ["Frontend"],
-    socialNetworks: [
-      {
-        name: "LinkedIn",
-        url: "https://www.linkedin.com/in/leopoldo-miranda/",
-      },
 
-    ],
-  },
 
 ];
 
