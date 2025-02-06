@@ -8,7 +8,7 @@
       <h3 class="text-xl text-white">Pozdrav, {{ autentificationStore.userData?.fullName || '' }}</h3>
       <Button variant="outline" @click="autentificationStore.logout">Odjavi se</Button>
     </div>
-    <div class="absolute top-0 left-0 w-full h-full flex flex-col justify-center items-center">
+    <div class="absolute top-0 left-0 w-full h-full flex flex-col justify-center items-center z-10">
       <h2 class="text-6xl font-bold text-white">Discover the World's Most Vibrant Cities</h2>
       <p class="text-2xl font-lg text-white pt-2 pb-6">Explore culture, landmarks, and hidden gems</p>
       <Button variant="outline">Start exploring → </Button>
