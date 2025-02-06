@@ -8,8 +8,6 @@ import { setupErrorHandler } from './domain/store/ErrorHandler'
 
 import router from './router'
 
-//TODO: Vamo dodati da ovo odredim iz env varijable
-
 const app = createApp(App)
 const pinia = createPinia()
 
