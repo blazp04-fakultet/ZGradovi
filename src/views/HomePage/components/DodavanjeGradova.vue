@@ -15,6 +15,7 @@ import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { useCityStore } from '@/domain/store/CityStore'
 import type { CityDetailsModel } from '@/domain/model/local/CityDetailsModel'
+import { uploadImage } from '@/domain/repository/CityRepository'
 
 const imageUrl = ref<string | null>(null)
 
@@ -115,7 +116,8 @@ const cityStore = useCityStore()
               </div>
             </div>
             <div class="flex space-x-4 w-[500px]">
-              <Button type="submit" @click="() => {
+              <Button type="submit" @click="async () => {
+
                 const data: CityDetailsModel = {
                   name: name,
                   description: description,

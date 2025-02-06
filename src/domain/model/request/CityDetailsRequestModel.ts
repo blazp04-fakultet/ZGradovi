@@ -2,9 +2,9 @@ export type CityDetailsRequestModel = {
   name: string
   description: string
   country: string
-  settledYear: number
-  consolidatedYear: number
-  population: number
-  zipCode: number
+  settledYear: string
+  consolidatedYear: string
+  population: string
+  zipCode: string
   imageUrl: string
 }
