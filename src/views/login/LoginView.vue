@@ -11,11 +11,9 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { useAutentificationStore } from '@/domain/store/AutentificationStore'
 import { ref } from 'vue'
-import { useRouter } from 'vue-router'
 const email = ref('')
 const password = ref('')
 const userStore = useAutentificationStore()
-const router = useRouter()
 const Login = async () => {
   if (email.value && password.value) {
     const success = await userStore.login(email.value, password.value)
@@ -36,13 +34,7 @@ const Login = async () => {
         <div class="grid gap-4">
           <div class="grid gap-2">
             <Label for="email">Email</Label>
-            <Input
-              id="email"
-              type="email"
-              placeholder="m@example.com"
-              required
-              v-model="email"
-            />
+            <Input id="email" type="email" placeholder="m@example.com" required v-model="email" />
           </div>
           <div class="grid gap-2 pas">
             <Label for="password">Password</Label>
@@ -61,9 +53,11 @@ const Login = async () => {
 <style scoped>
 .custom-card-width {
   width: 500px;
+
   .w-full {
     margin-top: 10px;
   }
+
   .pas {
     margin-bottom: 5px;
   }
