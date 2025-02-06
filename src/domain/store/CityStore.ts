@@ -2,13 +2,12 @@ import { defineStore } from 'pinia'
 import type { CityModel } from '@/domain/model/local/CityModel'
 import type { CityDetails } from '@/domain/model/local/CityDetails'
 import { ref } from 'vue'
+
 import {
   fetchAllCities,
   fetchCityDetails,
+  postNewCity,
 } from '@/domain/repository/CityRepository'
-import type { CityResponseModel } from '../model/response/CityResponseModel'
-
-import { fetchAllCities, postNewCity } from '@/domain/repository/CityRepository'
 import type { CityResponseModel } from '../model/response/CityResponseModel'
 import type { CityDetailsModel } from '../model/local/CityDetailsModel'
 import type { CityDetailsRequestModel } from '../model/request/CityDetailsRequestModel'
