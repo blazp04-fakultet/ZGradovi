@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const apiConfig = axios.create({
-  baseURL: `${import.meta.env.VITE_API_URL}/api/v1`,
+  baseURL: `${import.meta.env.VITE_API_URL}/api/v1/`,
 })
 
 apiConfig.interceptors.request.use(config => {
@@ -9,6 +9,8 @@ apiConfig.interceptors.request.use(config => {
 
   if (token) {
     config.headers.Authorization = `Bearer ${token}`
+    config.headers.Accept = 'application/json'
+    config.headers['ngrok-skip-browser-warning'] = true
   }
 
   return config
