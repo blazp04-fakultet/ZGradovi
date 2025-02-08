@@ -36,13 +36,8 @@ const handleImageUpload = (event: Event) => {
   }
 }
 // Props
-const { modelValue } = defineProps({
-  modelValue: {
-    type: Boolean,
-    required: true,
-  },
-})
-const open = ref(modelValue)
+
+const open = ref(false)
 
 const name = ref('')
 const description = ref('')

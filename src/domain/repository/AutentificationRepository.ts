@@ -1,5 +1,5 @@
 import apiConfig from '@/config/AxiosConfig'
-import type SignupRequestModel from '../model/request/SignupRequestModel.ts'
+import type { SignupRequestModel } from '../model/request/SignupRequestModel.ts'
 import type { UserResponseModel } from '../model/response/UserResponseDataModel.js'
 
 async function fetchUserData(): Promise<UserResponseModel> {

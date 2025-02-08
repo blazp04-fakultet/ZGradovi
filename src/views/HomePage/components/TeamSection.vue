@@ -40,6 +40,10 @@ const teamList: TeamModel[] = [
     positions: ["Frontend"],
     socialNetworks: [
       {
+        name: "LinkedIn",
+        url: "https://www.linkedin.com/in/vinko-jakelji%C4%87-2089542a2/",
+      },
+      {
         name: "Github",
         url: "https://github.com/Vinko004",
       },

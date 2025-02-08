@@ -30,7 +30,7 @@
       Ready to Plan Your Next Adventure?
     </h3>
 
-    <DodavanjeGradova v-model:modelValue="isDrawerOpen" />
+    <DodavanjeGradova />
   </div>
   <div class="h-10 bg-gray-100"></div>
   <TeamSection />

@@ -1,6 +1,6 @@
 import { ref } from 'vue'
 import { defineStore } from 'pinia'
-import type SignupRequestModel from '../model/request/SignupRequestModel.ts'
+import type { SignupRequestModel } from '../model/request/SignupRequestModel.ts'
 import {
   login as iLogin,
   signup as iSignup,

@@ -10,7 +10,7 @@ import {
 } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
-import SignupRequestModel from '@/domain/model/request/SignupRequestModel';
+import type { SignupRequestModel } from '@/domain/model/request/SignupRequestModel';
 import { useAutentificationStore } from '@/domain/store/AutentificationStore';
 import { onMounted, ref } from 'vue';
 
