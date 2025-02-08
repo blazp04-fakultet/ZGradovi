@@ -10,6 +10,8 @@ import type { TeamModel } from "@/domain/model/local/TeamModel";
 import { socialIcon } from "@/utils/SocialMediaUtils";
 
 import BlazPeric from "@/assets/icons/BlazPeric.jpeg"
+import JelenaVucic from "@/assets/icons/jelena.jpg"
+import VinkoJakeljic from "@/assets/icons/vinko.jpg"
 
 
 const teamList: TeamModel[] = [
@@ -22,37 +24,37 @@ const teamList: TeamModel[] = [
     socialNetworks: [
       {
         name: "LinkedIn",
-        url: "https://www.linkedin.com/in/leopoldo-miranda/",
+        url: "https://www.linkedin.com/in/blazperic/",
       },
       {
         name: "Github",
-        url: "https://www.linkedin.com/in/leopoldo-miranda/",
+        url: "https://github.com/Blazp04",
       },
 
     ],
   },
   {
-    imageUrl: BlazPeric,
-    firstName: "Blaž",
-    lastName: "Perić",
+    imageUrl: VinkoJakeljic,
+    firstName: "Vinko",
+    lastName: "Jakečjić",
     positions: ["Frontend"],
     socialNetworks: [
       {
-        name: "LinkedIn",
-        url: "https://www.linkedin.com/in/leopoldo-miranda/",
+        name: "Github",
+        url: "https://github.com/Vinko004",
       },
 
     ],
   },
   {
-    imageUrl: BlazPeric,
-    firstName: "Blaž",
-    lastName: "Perić",
+    imageUrl: JelenaVucic,
+    firstName: "Jelena",
+    lastName: "Vučić",
     positions: ["Frontend"],
     socialNetworks: [
       {
-        name: "LinkedIn",
-        url: "https://www.linkedin.com/in/leopoldo-miranda/",
+        name: "Github",
+        url: "https://github.com/vucicj",
       },
 
     ],
