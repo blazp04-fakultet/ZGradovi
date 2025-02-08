@@ -6,5 +6,5 @@ export type CityDetailsModel = {
   consolidatedYear: string
   population: string
   zipCode: string
-  imageUrl: string
+  imageURL: string
 }

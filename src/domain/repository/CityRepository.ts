@@ -27,4 +27,29 @@ async function postNewCity(city: CityDetailsRequestModel): Promise<boolean> {
   return false
 }
 
-export { fetchAllCities, postNewCity, fetchCityDetails }
+async function deleteCity(id: string): Promise<boolean> {
+  const response = await apiConfig.delete(`/cities/${id}`)
+  if (response.status == 200) {
+    return true
+  }
+  return false
+}
+
+async function patchCityImage(
+  id: string,
+  data: CityDetailsRequestModel,
+): Promise<boolean> {
+  const response = await apiConfig.patch(`/cities/${id}`, data)
+  if (response.status == 200) {
+    return true
+  }
+  return false
+}
+
+export {
+  fetchAllCities,
+  postNewCity,
+  fetchCityDetails,
+  deleteCity,
+  patchCityImage,
+}

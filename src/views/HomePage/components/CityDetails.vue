@@ -11,6 +11,7 @@ import {
 } from '@/components/ui/dialog'
 import { Label } from '@/components/ui/label'
 import { Separator } from '@/components/ui/separator'
+import { uploadFile } from '@/domain/repository/SuperbaseRepository';
 import { useCityStore } from '@/domain/store/CityStore';
 
 const cityStore = useCityStore();
@@ -19,6 +20,23 @@ const props = defineProps<{
   id: string
 }>();
 
+
+const changePicture = async (event: Event) => {
+  const input = event.target as HTMLInputElement
+  const file = input.files ? input.files[0] : null
+
+  if (file && file.type.startsWith('image/')) {
+    const reader = new FileReader()
+
+    reader.onload = async () => {
+      const img = await uploadFile(reader.result as string)
+      await cityStore.changePicture(props.id, img)
+    }
+    reader.readAsDataURL(file)
+  } else {
+    alert('Please upload a valid image file.')
+  }
+}
 </script>
 
 <template>
@@ -26,7 +44,7 @@ const props = defineProps<{
     <DialogTrigger class="w-full h-full flex items-center justify-center">
       <Button class="w-full" @click="async () => cityStore.getCityDetails(props.id)"> Pročitaj više </Button>
     </DialogTrigger>
-    <DialogContent class=" w-fit">
+    <DialogContent class="sm:max-w-[50rem]">
       <DialogHeader>
         <DialogDescription class="flex items-center space-x-4 w-full">
           <img :src="cityStore.cityDetails?.imageUrl" alt="profile image" class="w-64 h-64 " />
@@ -55,6 +73,17 @@ const props = defineProps<{
           </div>
         </DialogDescription>
       </DialogHeader>
+      <DialogFooter>
+
+        <Button @click="async () => $refs.fileInput.click()">
+          <input type="file" accept="image/*" @change="changePicture" ref="fileInput" style="display: none;" />
+          Promijeni sliku
+        </Button>
+
+
+        <Button @click="async () => cityStore.deleteCity(props.id)" class=" bg-red-600">Izbriši</Button>
+
+      </DialogFooter>
     </DialogContent>
   </Dialog>
 </template>

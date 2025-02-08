@@ -7,6 +7,8 @@ import {
   fetchAllCities,
   fetchCityDetails,
   postNewCity,
+  patchCityImage,
+  deleteCity as iDeleteCity,
 } from '@/domain/repository/CityRepository'
 import type { CityResponseModel } from '../model/response/CityResponseModel'
 import type { CityDetailsModel } from '../model/local/CityDetailsModel'
@@ -50,16 +52,39 @@ export const useCityStore = defineStore('cityStore', () => {
     }
   }
 
+  const deleteCity = async (id: string) => {
+    await iDeleteCity(id)
+    getAllCities()
+  }
+
+  const changePicture = async (id: string, imageUrl: string) => {
+    if (cityDetails.value) {
+      const c: CityDetailsRequestModel = {
+        name: cityDetails.value.name,
+        description: cityDetails.value.description,
+        country: cityDetails.value.country,
+        settledYear: parseInt(cityDetails.value.settledYear),
+        consolidatedYear: parseInt(cityDetails.value.consolidatedYear),
+        population: parseInt(cityDetails.value.population),
+        zipCode: parseInt(cityDetails.value.zipCode),
+        imageUrl: imageUrl,
+      }
+      await patchCityImage(id, c)
+    }
+    getCityDetails(id)
+    getAllCities()
+  }
+
   const addNewCity = async (city: CityDetailsModel) => {
     const c: CityDetailsRequestModel = {
       name: city.name,
       description: city.description,
       country: city.country,
-      settledYear: city.settledYear,
-      consolidatedYear: city.consolidatedYear,
-      population: city.population,
-      zipCode: city.zipCode,
-      imageUrl: city.imageUrl,
+      settledYear: parseInt(city.settledYear),
+      consolidatedYear: parseInt(city.consolidatedYear),
+      population: parseInt(city.population),
+      zipCode: parseInt(city.zipCode),
+      imageUrl: city.imageURL,
     }
     const response = await postNewCity(c)
     if (response) {
@@ -74,6 +99,8 @@ export const useCityStore = defineStore('cityStore', () => {
     getAllCities,
     getCityDetails,
     addNewCity,
+    deleteCity,
+    changePicture,
     cityDetails,
   }
 })
