@@ -82,7 +82,7 @@ const resetAll = async () => {
             <label v-if="!imageUrl" for="image-upload"
               class="w-[300px] h-[300px] border-2 border-dashed border-gray-400 rounded-md flex items-center justify-around cursor-pointer hover:border-indigo-500">
               <input id="image-upload" type="file" accept="image/*" class="hidden" @change="handleImageUpload" />
-              <span class="text-gray-600">Upload Image</span>
+              <span class="text-gray-600">Učitaj sliku</span>
             </label>
             <div v-if="imageUrl" class="mt-4">
               <img :src="imageUrl" alt="Uploaded Image" class="w-[300px] h-[300px] object-cover rounded-md" />

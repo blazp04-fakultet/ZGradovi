@@ -41,7 +41,7 @@ onMounted(() => {
             <Input id="email" type="email" placeholder="E-mail" required v-model="email" />
           </div>
           <div class="grid gap-2 pas">
-            <Label for="password">Password</Label>
+            <Label for="password">Lozinka</Label>
             <Input id="password" type="password" placeholder="Lozinka" v-model="password" />
           </div>
           <Button type="submit" class="w-full" @click="Login"> Prijava </Button>

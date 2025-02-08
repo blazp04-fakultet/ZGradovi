@@ -55,7 +55,7 @@ onMounted(() => {
               <Input id="name" placeholder="E-mail" v-model="email" />
             </div>
             <div class="flex flex-col space-y-1.5">
-              <Label for="name">Zaporka</Label>
+              <Label for="name">Lozinka</Label>
               <Input type="password" id="name" placeholder="Lozinka" v-model="password" />
             </div>
           </div>
