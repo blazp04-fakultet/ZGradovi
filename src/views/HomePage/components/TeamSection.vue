@@ -36,7 +36,7 @@ const teamList: TeamModel[] = [
   {
     imageUrl: VinkoJakeljic,
     firstName: "Vinko",
-    lastName: "Jakečjić",
+    lastName: "Jakeljić",
     positions: ["Frontend"],
     socialNetworks: [
       {
